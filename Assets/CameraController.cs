@@ -15,11 +15,11 @@ public class CameraController : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if (Input.GetKey("w") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
             pos.y += panSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
+        else if (Input.GetKey("s") || Input.mousePosition.x <= panBorderThickness)
         {
             pos.y -= panSpeed * Time.deltaTime;
         }
