@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
 	public string allyTag;
 	public int damage;
+	public uint destroyAfter;
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.tag != allyTag)
@@ -13,5 +14,10 @@ public class BulletController : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 		
+	}
+
+	private void Awake()
+	{
+		Destroy(this.gameObject, destroyAfter);
 	}
 }

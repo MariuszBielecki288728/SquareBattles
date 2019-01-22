@@ -31,4 +31,23 @@ public class GameController : MonoBehaviour
             Instantiate(smallEnemyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(34f, 37.5f), 0), new Quaternion(0, 0, 180, 0));
         }
     }
+
+	public void SpawnSmallTank()
+	{
+		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+	}
+
+	public void SpawnMediumTank()
+	{
+		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+	}
+	public void SpawnHeavyTank()
+	{
+		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+	}
+	public void SpawnLeviathan()
+	{
+		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+	}
+
 }

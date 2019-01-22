@@ -32,8 +32,8 @@ public class MainAllyGunController : MonoBehaviour
 
 	private void Fire()
 	{
-		GameObject bul = Instantiate(bullet, transform.GetChild(0).position, transform.GetChild(0).rotation);
-		bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(0).up * 10;
+		GameObject bul = Instantiate(bullet, transform.GetChild(1).position, transform.GetChild(1).rotation);
+		bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(1).up * 10;
 		bul.GetComponent<BulletController>().allyTag = this.tag;
 	}
 }
