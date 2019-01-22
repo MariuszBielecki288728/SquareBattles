@@ -9,11 +9,18 @@ public class GameController : MonoBehaviour
 	public GameObject heavyAllyTank;
 	public GameObject heavyEnemyTank;
 
+	public ulong money;
+	public uint BasicIncome;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		InvokeRepeating("IncreaseMoneyByBasicIncome", 0, 5f);
+	}
 
+	void IncreaseMoneyByBasicIncome()
+	{
+		money += BasicIncome;
 	}
 
 	// Update is called once per frame
