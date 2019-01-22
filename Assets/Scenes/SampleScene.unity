@@ -995,6 +995,8 @@ MonoBehaviour:
     type: 3}
   heavyEnemyTank: {fileID: 3050708143476356218, guid: d020cf957b0ad4f48867d15893d956fd,
     type: 3}
+  money: 400
+  BasicIncome: 50
 --- !u!50 &1318742106
 Rigidbody2D:
   serializedVersion: 4
