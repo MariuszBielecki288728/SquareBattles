@@ -1,53 +1,63 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject smallAllyTank;
-    public GameObject smallEnemyTank;
+	public GameObject smallAllyTank;
+	public GameObject smallEnemyTank;
+	public GameObject mediumAllyTank;
+	public GameObject mediumEnemyTank;
+	public GameObject heavyAllyTank;
+	public GameObject heavyEnemyTank;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        SpawnEntity();
-    }
-
-    void SpawnEntity()
-    {
-        if (Input.GetKeyDown("1"))
-        {
-            Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            Instantiate(smallEnemyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(34f, 37.5f), 0), new Quaternion(0, 0, 180, 0));
-        }
-    }
-
-	public void SpawnSmallTank()
+	// Start is called before the first frame update
+	void Start()
 	{
-		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+
 	}
 
-	public void SpawnMediumTank()
+	// Update is called once per frame
+	void Update()
 	{
-		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
+		if (Input.GetKeyDown("1"))
+		{
+			SpawnSmallTank(true);
+		}
+		if (Input.GetKeyDown("2"))
+		{
+			SpawnMediumTank(true);
+		}
+		if (Input.GetKeyDown("3"))
+		{
+			SpawnHeavyTank(true);
+		}
+
+		//TODO delete before release
+		if (Input.GetKeyDown("q"))
+		{
+			SpawnTank(smallEnemyTank, false);
+		}
+		if (Input.GetKeyDown("w"))
+		{
+			SpawnTank(mediumEnemyTank, false);
+		}
+		if (Input.GetKeyDown("e"))
+		{
+			SpawnTank(heavyEnemyTank, false);
+		}
 	}
-	public void SpawnHeavyTank()
-	{
-		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
-	}
-	public void SpawnLeviathan()
-	{
-		Instantiate(smallAllyTank, new Vector3(Random.Range(-9f, 9f), Random.Range(-34f, -37.5f), 0), Quaternion.identity);
-	}
+
+	public void SpawnSmallTank(bool isAlly) => SpawnTank(smallAllyTank, isAlly);
+	public void SpawnMediumTank(bool isAlly) => SpawnTank(mediumAllyTank, isAlly);
+	public void SpawnHeavyTank(bool isAlly) => SpawnTank(heavyAllyTank, isAlly);
+	public void SpawnLeviathan(bool isAlly) => SpawnTank(smallAllyTank, isAlly); //TODO
+
+	public void SpawnTank(GameObject tank, bool isAlly) =>
+		Instantiate(
+			tank,
+			new Vector3(Random.Range(-9f, 9f),
+			isAlly ? Random.Range(-34f, -37.5f) : Random.Range(34f, 37.5f), 0),
+			isAlly ? Quaternion.identity : new Quaternion(0, 0, 180, 0)
+		);
 
 }

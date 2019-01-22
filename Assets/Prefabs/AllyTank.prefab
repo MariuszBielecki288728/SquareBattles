@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8c813a1e914434085dd605383aa142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   bullet: {fileID: 3687506026705883036, guid: d6e59e5753af0a74abad7cea09f0bd05, type: 3}
   target: {fileID: 0}
   isGunPositioned: 0

@@ -6,15 +6,29 @@ using UnityEngine;
 public class MainAllyGunController : MonoBehaviour
 {
 	public GameObject bullet;
-    // Start is called before the first frame update
-    void Start()
+	public int health;
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+	void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.tag == "bullet" && collision.gameObject.GetComponent<BulletController>().allyTag != this.tag)
+		{
+			health -= collision.GetComponent<BulletController>().damage;
+		}
+
+	}
+
+	// Update is called once per frame
+	void Update()
     {
+		if (health <= 0)
+		{
+			GameOver();
+		}
 		// convert mouse position into world coordinates
 		Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -28,6 +42,11 @@ public class MainAllyGunController : MonoBehaviour
 		{
 			Fire();
 		}
+	}
+
+	private void GameOver()
+	{
+		throw new NotImplementedException();
 	}
 
 	private void Fire()
