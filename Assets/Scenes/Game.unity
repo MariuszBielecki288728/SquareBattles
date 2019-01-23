@@ -496,7 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 20
   panBorderThickness: 10
-  panLimit: {x: 0, y: 25}
+  panLimit: {x: 0, y: 22}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
