@@ -96,9 +96,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  bullet: {fileID: 3687506026705883036, guid: d6e59e5753af0a74abad7cea09f0bd05, type: 3}
+  type: 0
+  bullet: {fileID: 7989294254313618857, guid: 470ee513e9f393947b74c9f323957e28, type: 3}
+  healthBarPrefab: {fileID: 2901204233055715969, guid: 31056f80bc531764c965c97400e3a5c5,
+    type: 3}
+  explosion: {fileID: 2817327450805898730, guid: cd4617f15c2decf4eba047e441af8535,
+    type: 3}
   target: {fileID: 0}
   isGunPositioned: 0
+  health: 1000
+  plansza: {fileID: 0}
+  reward: 80
 --- !u!61 &8275772597074566268
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MainAllyGunController : MonoBehaviour
 {
 	public GameObject bullet;
 	public int health;
+
+	public Text allyHealtText;
 	// Start is called before the first frame update
 	void Start()
     {
@@ -29,6 +33,7 @@ public class MainAllyGunController : MonoBehaviour
 		{
 			GameOver();
 		}
+		allyHealtText.text = "Your HP: " + health.ToString();
 		// convert mouse position into world coordinates
 		Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

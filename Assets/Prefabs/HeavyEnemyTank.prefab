@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 69c826753b56d2d42be73a36ca25e3dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,9 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  bullet: {fileID: 3687506026705883036, guid: d6e59e5753af0a74abad7cea09f0bd05, type: 3}
+  type: 2
+  bullet: {fileID: 7989294254313618857, guid: 470ee513e9f393947b74c9f323957e28, type: 3}
+  healthBarPrefab: {fileID: 2901204233055715969, guid: 31056f80bc531764c965c97400e3a5c5,
+    type: 3}
+  explosion: {fileID: 2817327450805898730, guid: cd4617f15c2decf4eba047e441af8535,
+    type: 3}
   target: {fileID: 0}
   isGunPositioned: 0
+  health: 4000
+  plansza: {fileID: 0}
+  reward: 400
 --- !u!50 &7555280019161895755
 Rigidbody2D:
   serializedVersion: 4
@@ -244,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: bb2d5e9c23d2ede42af15f0081d8a67a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
