@@ -10,9 +10,11 @@ public class MainEnemyGunController : MonoBehaviour
 	public int health;
 
 	public Text enemyHealtText;
+	private AudioManager audioManager;
 	// Start is called before the first frame update
 	void Start()
 	{
+		audioManager = FindObjectOfType<AudioManager>();
 		InvokeRepeating("Fire", 0.5f, 1.5f);
 	}
 
@@ -52,12 +54,12 @@ public class MainEnemyGunController : MonoBehaviour
 			GameObject bul = Instantiate(bullet, transform.GetChild(1).position, transform.GetChild(1).rotation);
 			bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(1).up * 10;
 			bul.GetComponent<BulletController>().allyTag = this.tag;
-
 		}
 		if (!target)
 		{
 			isGunPositioned = false;
 		}
+		
 
 	}
 	Vector3? FindEnemyPosition()

@@ -11,10 +11,11 @@ public class MainAllyGunController : MonoBehaviour
 	public int health;
 
 	public Text allyHealtText;
+	private AudioManager audioManager;
 	// Start is called before the first frame update
 	void Start()
     {
-        
+		audioManager = FindObjectOfType<AudioManager>();
     }
 
 	void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +60,6 @@ public class MainAllyGunController : MonoBehaviour
 		GameObject bul = Instantiate(bullet, transform.GetChild(1).position, transform.GetChild(1).rotation);
 		bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(1).up * 10;
 		bul.GetComponent<BulletController>().allyTag = this.tag;
+		audioManager.Play("Fire");
 	}
 }

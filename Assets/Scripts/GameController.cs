@@ -26,7 +26,6 @@ public class GameController : MonoBehaviour
 
 	private Action[] spawningMethods;
 
-	// Start is called before the first frame update
 	void Start()
 	{
 		spawningMethods = new Action[]
@@ -38,8 +37,6 @@ public class GameController : MonoBehaviour
 		rnd = new System.Random();
 		InvokeRepeating("IncreaseMoneyByBasicIncome", 0, 5f);
 		InvokeRepeating("RunEnemyAI", 0, 5f);
-
-
 	}
 
 	void IncreaseMoneyByBasicIncome()
@@ -102,19 +99,6 @@ public class GameController : MonoBehaviour
 			SpawnHeavyTank(true);
 		}
 		moneyText.text = "$ " + money.ToString();
-		//TODO delete before release
-		if (Input.GetKeyDown("q"))
-		{
-			SpawnTank(smallEnemyTank, false);
-		}
-		if (Input.GetKeyDown("w"))
-		{
-			SpawnTank(mediumEnemyTank, false);
-		}
-		if (Input.GetKeyDown("e"))
-		{
-			SpawnTank(heavyEnemyTank, false);
-		}
 	}
 
 	public void SpawnSmallTank(bool isAlly)

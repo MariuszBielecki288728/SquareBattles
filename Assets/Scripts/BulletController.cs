@@ -9,12 +9,15 @@ public class BulletController : MonoBehaviour
 	public GameObject explosion;
 	private bool isQuitting = false;
 	private string enemyTag;
+
+	private AudioManager audioManager;
 	private void Start()
 	{
 		if (allyTag == "Ally")
 			enemyTag = "Enemy";
 		else if (allyTag == "Enemy")
 			enemyTag = "Ally";
+		
 		
 	}
 	void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +31,9 @@ public class BulletController : MonoBehaviour
 
 	private void Awake()
 	{
+		audioManager = FindObjectOfType<AudioManager>();
 		Destroy(this.gameObject, destroyAfter);
+		audioManager.Play("Fire");
 	}
 	void OnApplicationQuit()
 	{
@@ -40,6 +45,7 @@ public class BulletController : MonoBehaviour
 		if (explosion && !isQuitting)
 		{
 			Instantiate(explosion, this.transform.position, Quaternion.identity);
+			audioManager.Play("BulletExplosion");
 		}
 
 	}

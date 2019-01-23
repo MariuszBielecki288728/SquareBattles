@@ -20,6 +20,8 @@ public class TankController : MonoBehaviour
 	public GameObject plansza;
 	public uint reward;
 
+	private AudioManager audioManager;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -27,10 +29,15 @@ public class TankController : MonoBehaviour
 		GameObject bar = Instantiate(healthBarPrefab, this.transform);
 		bar.transform.localPosition = this.tag == "Ally" ? new Vector3(-0.7f, 0) : new Vector3(0.7f, 0);
 		barController = bar.GetComponent<HealthBarController>();
+		
+	}
+	private void Awake()
+	{
+		audioManager = FindObjectOfType<AudioManager>();
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
 		if (barController)
 		{
@@ -40,6 +47,7 @@ public class TankController : MonoBehaviour
 
 		if (health <= 0)
 		{
+			audioManager.Play("TankExplosion");
 			Destroy(this.gameObject);
 			return;
 		}
@@ -80,6 +88,7 @@ public class TankController : MonoBehaviour
 		{
 			plansza.GetComponent<GameController>().money += reward;
 		}
+		
 
 	}
 
@@ -138,8 +147,9 @@ public class TankController : MonoBehaviour
 		{
 			isGunPositioned = false;
 		}
-        
-    }
+
+
+	}
 	void Fire1()
 	{
 		
@@ -163,7 +173,6 @@ public class TankController : MonoBehaviour
 		{
 			isGunPositioned = false;
 		}
-
 	}
 
 	void Fire2()
@@ -188,6 +197,5 @@ public class TankController : MonoBehaviour
 		{
 			isGunPositioned = false;
 		}
-
 	}
 }
