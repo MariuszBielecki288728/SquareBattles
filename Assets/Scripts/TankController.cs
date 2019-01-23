@@ -86,6 +86,8 @@ public class TankController : MonoBehaviour
 		}
 		if (this.tag == "Enemy")
 		{
+			if (!plansza)
+				return;
 			plansza.GetComponent<GameController>().money += reward;
 		}
 		
@@ -155,14 +157,15 @@ public class TankController : MonoBehaviour
 		
 		if (isGunPositioned)
 		{
-			GameObject bul = Instantiate(bullet, transform.GetChild(0).position, transform.GetChild(0).rotation);
+			GameObject bul;
 			if (bulletCounter % 2 == 0)
 			{
-				bul.transform.position += new Vector3(0.15f, 0, 0);
+				bul = Instantiate(bullet, transform.GetChild(0).TransformPoint(new Vector3(0.15f, 0, 0)), transform.GetChild(0).rotation);
 			}
 			else
 			{
-				bul.transform.position += new Vector3(-0.15f, 0, 0);
+				bul = Instantiate(bullet, transform.GetChild(0).TransformPoint(new Vector3(-0.15f, 0, 0)), transform.GetChild(0).rotation);
+
 			}
 			bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(0).up * 10;
 			bul.GetComponent<BulletController>().allyTag = this.tag;
@@ -179,14 +182,20 @@ public class TankController : MonoBehaviour
 	{
 		if (isGunPositioned)
 		{
-			GameObject bul = Instantiate(bullet, transform.GetChild(0).position, transform.GetChild(0).rotation);
-			if (bulletCounter % 3 == 0)
+			GameObject bul;
+			if (bulletCounter % 3 == 0) //TODO this is really ugly
 			{
-				bul.transform.position += new Vector3(0.04f, 0, 0);
+				bul = Instantiate(bullet, transform.GetChild(0).GetChild(1).TransformPoint(new Vector3(0.05f, 0)), transform.GetChild(0).GetChild(1).rotation);
+
 			}
 			else if (bulletCounter % 3 == 2)
 			{
-				bul.transform.position += new Vector3(-0.04f, 0, 0);
+				bul = Instantiate(bullet, transform.GetChild(0).GetChild(1).TransformPoint(new Vector3(-0.05f, 0)), transform.GetChild(0).GetChild(1).rotation);
+			}
+			else
+			{
+				bul = Instantiate(bullet, transform.GetChild(0).GetChild(1).position, transform.GetChild(0).GetChild(1).rotation);
+
 			}
 			bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(0).up * 10;
 			bul.GetComponent<BulletController>().allyTag = this.tag;

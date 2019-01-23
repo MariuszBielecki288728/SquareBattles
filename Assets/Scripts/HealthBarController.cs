@@ -12,6 +12,8 @@ public class HealthBarController : MonoBehaviour
     }
 	public void SetSize(float sizeNormalized)
 	{
+		if (!bar)
+			return;
 		bar.localScale = new Vector3(1f, sizeNormalized);
 	}
     // Update is called once per frame

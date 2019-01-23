@@ -3,20 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class MainAllyGunController : MonoBehaviour
 {
 	public GameObject bullet;
 	public int health;
+	public float coolDownPeriodInSeconds;
 
 	public Text allyHealtText;
 	private AudioManager audioManager;
+
+	private float timeStamp;
 	// Start is called before the first frame update
 	void Start()
     {
 		audioManager = FindObjectOfType<AudioManager>();
-    }
+		timeStamp = Time.time;
+
+	}
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -52,14 +58,19 @@ public class MainAllyGunController : MonoBehaviour
 
 	private void GameOver()
 	{
-		throw new NotImplementedException();
+		SceneManager.LoadScene("GameOverScreen");
 	}
 
 	private void Fire()
 	{
+		if (timeStamp > Time.time)
+		{
+			return;
+		}
 		GameObject bul = Instantiate(bullet, transform.GetChild(1).position, transform.GetChild(1).rotation);
 		bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(1).up * 10;
 		bul.GetComponent<BulletController>().allyTag = this.tag;
 		audioManager.Play("Fire");
+		timeStamp = Time.time + coolDownPeriodInSeconds;
 	}
 }

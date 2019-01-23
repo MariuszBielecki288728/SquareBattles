@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainEnemyGunController : MonoBehaviour
@@ -39,7 +40,7 @@ public class MainEnemyGunController : MonoBehaviour
 
 	private void GameOver()
 	{
-		throw new NotImplementedException();
+		SceneManager.LoadScene("VictoryScreen");
 	}
 
 	void Fire()
