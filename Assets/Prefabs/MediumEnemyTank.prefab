@@ -122,17 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  maxHealth: 2000
   type: 1
+  reward: 150
   bullet: {fileID: 7989294254313618857, guid: 470ee513e9f393947b74c9f323957e28, type: 3}
   healthBarPrefab: {fileID: 2901204233055715969, guid: 31056f80bc531764c965c97400e3a5c5,
     type: 3}
   explosion: {fileID: 2817327450805898730, guid: cd4617f15c2decf4eba047e441af8535,
     type: 3}
+  plansza: {fileID: 0}
   target: {fileID: 0}
   isGunPositioned: 0
-  health: 2000
-  plansza: {fileID: 0}
-  reward: 150
 --- !u!50 &96570994549298820
 Rigidbody2D:
   serializedVersion: 4

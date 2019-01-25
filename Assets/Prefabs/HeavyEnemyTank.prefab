@@ -122,17 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  maxHealth: 4000
   type: 2
+  reward: 400
   bullet: {fileID: 7989294254313618857, guid: 470ee513e9f393947b74c9f323957e28, type: 3}
   healthBarPrefab: {fileID: 2901204233055715969, guid: 31056f80bc531764c965c97400e3a5c5,
     type: 3}
   explosion: {fileID: 2817327450805898730, guid: cd4617f15c2decf4eba047e441af8535,
     type: 3}
+  plansza: {fileID: 0}
   target: {fileID: 0}
   isGunPositioned: 0
-  health: 4000
-  plansza: {fileID: 0}
-  reward: 400
 --- !u!50 &7555280019161895755
 Rigidbody2D:
   serializedVersion: 4
@@ -182,8 +182,39 @@ Transform:
   m_LocalScale: {x: 0.8000001, y: 1, z: 1}
   m_Children:
   - {fileID: 5032781753318266865}
+  - {fileID: 1701805606176636107}
   m_Father: {fileID: 1697384896357294475}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5052269564797316965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701805606176636107}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701805606176636107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052269564797316965}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1618658108979855269}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7190297135372499784
 GameObject:
