@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,7 +68,7 @@ public class TankController : MonoBehaviour
 
     void LateUpdate()
     {
-        healthBar = Mathf.Lerp(healthBar, health, Time.deltaTime * 2);;
+        healthBar = Mathf.Lerp(healthBar, health, Time.deltaTime * 6);;
         barController.SetSize(healthBar / (float)maxHealth);
     }
     void OnApplicationQuit()
@@ -131,6 +132,7 @@ public class TankController : MonoBehaviour
     {
         if (isGunPositioned)
         {
+			UpdateGunPosition();
             GameObject bul = Instantiate(bullet, transform.GetChild(0).position, transform.GetChild(0).rotation);
             bul.GetComponent<Rigidbody2D>().velocity = transform.GetChild(0).up * 10;
             bul.GetComponent<BulletController>().allyTag = this.tag;
@@ -150,7 +152,8 @@ public class TankController : MonoBehaviour
     {
         if (isGunPositioned)
         {
-            GameObject bul;
+			UpdateGunPosition();
+			GameObject bul;
             if (bulletCounter % 2 == 0)
             {
                 bul = Instantiate(bullet, transform.GetChild(0).TransformPoint(new Vector3(0.15f, 0, 0)), transform.GetChild(0).rotation);
@@ -180,7 +183,8 @@ public class TankController : MonoBehaviour
     {
         if (isGunPositioned)
         {
-            GameObject bul;
+			UpdateGunPosition();
+			GameObject bul;
             if (bulletCounter % 3 == 0) //TODO this is really ugly
             {
                 bul = Instantiate(bullet, transform.GetChild(0).GetChild(1).TransformPoint(new Vector3(0.05f, 0)), transform.GetChild(0).GetChild(1).rotation);
@@ -210,4 +214,13 @@ public class TankController : MonoBehaviour
             }
         }
     }
+	private void UpdateGunPosition()
+	{
+		if (target)
+		{
+			Vector2 dir = target.transform.position - this.transform.position;
+			this.transform.GetChild(0).up = dir.normalized;
+		}
+
+	}
 }
