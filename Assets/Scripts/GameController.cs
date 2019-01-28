@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
 
 	void Start()
 	{
+		Application.targetFrameRate = 60;
 		spawningMethods = new Action[]
 		{
 			() => SpawnTank(smallEnemyTank, false),

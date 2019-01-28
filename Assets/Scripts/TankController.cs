@@ -116,7 +116,7 @@ public class TankController : MonoBehaviour
         {
             if (col.tag != "bullet" && col.tag != "Map" && this.tag != col.tag)
             {
-                Debug.Log(col.tag);
+
                 Vector2 dir = col.transform.position - this.transform.position;
                 tankTower.up = dir.normalized;
 
