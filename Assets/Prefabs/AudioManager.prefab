@@ -74,7 +74,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TankExplosion
     clip: {fileID: 8300000, guid: 3fd6ce5a4fd125b4d8c8fe4f5801a1ad, type: 3}
-    volume: 0.79
+    volume: 0.88
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: EnergyBulletExplosion
+    clip: {fileID: 8300000, guid: 523ebf68884d98049942c0866eb29b2c, type: 3}
+    volume: 0.14
+    volumeVariance: 0.28
+    pitch: 0.71
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+    volume: 0.77
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

@@ -97,8 +97,10 @@ MonoBehaviour:
   allyTag: 
   damage: 200
   destroyAfter: 3
+  isEnergy: 0
   explosion: {fileID: 202360199963402608, guid: fab8b14f6da1ff840a11f1cf21d9eaf7,
     type: 3}
+  explosionSound: BulletExplosion
 --- !u!50 &7562435822499300411
 Rigidbody2D:
   serializedVersion: 4

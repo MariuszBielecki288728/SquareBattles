@@ -52,8 +52,8 @@ MonoBehaviour:
   damage: 600
   destroyAfter: 3
   isEnergy: 1
-  explosion: {fileID: 2789830048541835107, guid: ee411ed1833fabf468f891afc51a2430,
-    type: 3}
+  explosion: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0, type: 3}
+  explosionSound: EnergyBulletExplosion
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 0

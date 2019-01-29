@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class MainAllyGunController : MonoBehaviour
@@ -13,6 +12,9 @@ public class MainAllyGunController : MonoBehaviour
 	public int health;
 	public float coolDownPeriodInSeconds;
 
+	public Image black;
+	public Animator anim;
+
 	public Text allyHealtText;
 	private AudioManager audioManager;
 	private bool isPointerOverUI = false;
@@ -20,7 +22,7 @@ public class MainAllyGunController : MonoBehaviour
 	private float timeStamp;
 	// Start is called before the first frame update
 	void Start()
-    {
+	{
 		audioManager = FindObjectOfType<AudioManager>();
 		timeStamp = Time.time;
 
@@ -75,13 +77,20 @@ public class MainAllyGunController : MonoBehaviour
 #else
 	private void CheckPointerPositionOverUI()
 	{
-		return EventSystem.current.IsPointerOverGameObject();
+		isPointerOverUI = EventSystem.current.IsPointerOverGameObject();
 	}
 #endif
 
 	private void GameOver()
 	{
-		SceneManager.LoadScene("GameOverScreen");
+		StartCoroutine(Fading(new Action(() => SceneManager.LoadScene("GameOverScreen"))));
+	}
+
+	IEnumerator Fading(Action action)
+	{
+		anim.SetBool("Fade", true);
+		yield return new WaitUntil(() => black.color.a == 1);
+		action();
 	}
 
 	private void Fire()

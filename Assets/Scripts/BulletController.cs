@@ -7,10 +7,14 @@ public class BulletController : MonoBehaviour
 	public uint destroyAfter;
 	public bool isEnergy = false;
 	public GameObject explosion;
+	public string explosionSound;
+
 	private bool isQuitting = false;
 	private string enemyTag;
 
 	private AudioManager audioManager;
+	
+
 	private void Start()
 	{
 		if (allyTag == "Ally")
@@ -45,7 +49,7 @@ public class BulletController : MonoBehaviour
 		if (explosion && !isQuitting)
 		{
 			Instantiate(explosion, this.transform.position, Quaternion.identity);
-			audioManager.Play("BulletExplosion");
+			audioManager.Play(explosionSound);
 		}
 
 	}

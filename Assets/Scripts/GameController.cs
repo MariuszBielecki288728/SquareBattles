@@ -21,10 +21,13 @@ public class GameController : MonoBehaviour
 	public uint heavyPrice;
 	public uint leviathanPrice;
 
+
+
 	private System.Random rnd;
 	private uint aiStep = 0;
 
 	private Action[] spawningMethods;
+	private AudioManager audioManager;
 
 	void Start()
 	{
@@ -38,6 +41,7 @@ public class GameController : MonoBehaviour
 		rnd = new System.Random();
 		InvokeRepeating("IncreaseMoneyByBasicIncome", 0, 5f);
 		InvokeRepeating("RunEnemyAI", 0, 5f);
+		audioManager = FindObjectOfType<AudioManager>();
 	}
 
 	void IncreaseMoneyByBasicIncome()
@@ -104,6 +108,7 @@ public class GameController : MonoBehaviour
 
 	public void SpawnSmallTank(bool isAlly)
 	{
+		audioManager.Play("ButtonClick");
 		if (money >= smallPrice)
 		{
 			SpawnTank(smallAllyTank, isAlly);
@@ -113,6 +118,7 @@ public class GameController : MonoBehaviour
 
 	public void SpawnMediumTank(bool isAlly)
 	{
+		audioManager.Play("ButtonClick");
 		if (money >= mediumPrice)
 		{
 			SpawnTank(mediumAllyTank, isAlly);
@@ -122,6 +128,7 @@ public class GameController : MonoBehaviour
 
 	public void SpawnHeavyTank(bool isAlly)
 	{
+		audioManager.Play("ButtonClick");
 		if (money >= heavyPrice)
 		{
 			SpawnTank(heavyAllyTank, isAlly);
